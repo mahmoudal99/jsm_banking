@@ -1,10 +1,15 @@
+import HeaderBox from "@/components/HeaderBox";
+import TotalBalanceBox from "@/components/TotalBalanceBox";
 import React from "react";
 
 const Home = () => {
   return (
-    <div className="flex flex-col items-center justify-center h-screen">
-      <h1 className="text-4xl font-bold">Horizon Banking</h1>
-    </div>
+    <section className="home">
+      <div className="home-content">
+        <HeaderBox type="greeting" title="Welcome " user="John Doe" subtext="This is a sample greeting" />
+        <TotalBalanceBox accounts={[]} totalBanks={0} totalCurrentBalance={1000000} />
+      </div>
+    </section>
   );
 };
 
