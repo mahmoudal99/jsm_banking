@@ -13,7 +13,7 @@ const Home = () => {
           <TotalBalanceBox accounts={[]} totalBanks={0} totalCurrentBalance={1000000} />
         </header>
       </div>
-      <RightSideBar user={loggedIn} transactions={[]} banks={[{}, {}]} />
+      <RightSideBar user={loggedIn} transactions={[]} banks={[{currentBalance: 12000}, {currentBalance: 12500}]} />
     </section>
   );
 };

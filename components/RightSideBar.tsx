@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import BankCard from "./BankCard";
 
 export default function RightSideBar({ user, transactions, banks } : RightSidebarProps ) {
     return (
@@ -40,21 +41,15 @@ export default function RightSideBar({ user, transactions, banks } : RightSideba
                 {banks?.length > 0 && (
                     <div className="relative flex flex-1 flex-col items-center justify-center gap-5">
                         <div className="relative z-10">
-                            BANK CARD 1
+                            <BankCard account={banks[0]} showBalance={false} userName={`${user.firstName} ${user.lastName}`} />
                         </div>
                         {banks[1] && (
                             <div className="absolute right-0 top-8 z-0 w-[90%]">
-                                BANK CARD 2
+                                <BankCard account={banks[1]} showBalance={false} userName={`${user.firstName} ${user.lastName}`} />
                             </div>
                         )}
                     </div>
                 )}
-            </section>  
-            <section className="recent-transactions">
-                <h2 className="recent-transactions-title">Recent Transactions</h2>
-                <div className="recent-transactions-table">
-                    
-                </div>
             </section>  
         </aside>
     )
