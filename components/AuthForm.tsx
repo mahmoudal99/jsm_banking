@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useState } from "react";
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
-import { z } from "zod"
+import { set, z } from "zod"
 import { Button } from "@/components/ui/button"
 import {
   Form,
@@ -20,6 +20,7 @@ import CustomInput from "./CustomInput";
 import { Loader2 } from "lucide-react";
 import { authFormSchema } from "@/lib/utils";
 import { useRouter } from "next/navigation";
+import { signIn, signUp } from "@/lib/actions/user.actions";
 
 export default function AuthForm({ type } : { type : string }) {
     const router = useRouter();
@@ -42,13 +43,19 @@ export default function AuthForm({ type } : { type : string }) {
         setIsLoading(true);
         try {
             if(type === 'sign-up'){
-              
+              const newUser = await signUp(values);
+              setUser(newUser);
             }
-
             if(type === 'sign-in'){
-                router.push('/')
+                const response = await signIn({
+                    email: values.email,
+                    password: values.password,
+                });
+                if(response){
+                    setUser(response.data);
+                    router.push('/')
+                }
             }
-            
         }catch(e){
             console.log(e)
         }finally{
