@@ -6,12 +6,12 @@ import React from "react";
 
 const Home = async () => {
   const loggedIn = await getLoggedInUser();
-
+  console.log(loggedIn);
   return (
     <section className="home">
       <div className="home-content">
         <header className="home-header">
-          <HeaderBox type="greeting" title="Welcome " user={loggedIn.name} subtext="This is a sample greeting" />
+          <HeaderBox type="greeting" title="Welcome " user={loggedIn?.name} subtext="This is a sample greeting" />
           <TotalBalanceBox accounts={[]} totalBanks={0} totalCurrentBalance={1000000} />
         </header>
       </div>
