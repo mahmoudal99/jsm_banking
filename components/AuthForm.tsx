@@ -21,6 +21,7 @@ import { Loader2 } from "lucide-react";
 import { authFormSchema } from "@/lib/utils";
 import { useRouter } from "next/navigation";
 import { signIn, signUp } from "@/lib/actions/user.actions";
+import PlaidLink from "./PlaidLink";
 
 export default function AuthForm({ type } : { type : string }) {
     const router = useRouter();
@@ -80,11 +81,11 @@ export default function AuthForm({ type } : { type : string }) {
                         </p>
                     </h1>
                 </div>
-                {user ? (
+                {/* {user ? ( */}
                     <div>
-                        {/* TODO: Link Account */}
+                        <PlaidLink user={user} variant="primary" />
                     </div>
-                ) : (
+                {/* ) : ( */}
                     <>
                     <Form {...form}>
                     <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
@@ -182,7 +183,7 @@ export default function AuthForm({ type } : { type : string }) {
                         </Link>
                     </footer>
                   </>
-                )}
+                {/* )} */}
             </header>
         </section>
     )
