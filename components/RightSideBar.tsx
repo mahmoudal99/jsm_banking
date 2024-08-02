@@ -10,7 +10,7 @@ export default function RightSideBar({ user, transactions, banks } : RightSideba
                 <div className="profile">
                     <div className="profile-img">
                         <span className="text-5xl font-bold text-blue-500">
-                            {user.name[0]}
+                            {user.firstName}
                         </span>
                     </div>
                     <div className="profile-details">
