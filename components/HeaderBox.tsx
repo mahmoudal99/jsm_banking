@@ -5,7 +5,7 @@ export default function HeaderBox({ type = "title",  title, subtext, user } : He
     <div className="header-box">
       <h1 className="header-box-title">
         {title}
-        {type === "greeting" && <span className="text-bankGradient">{user}</span>}
+        {type === "greeting" && <span className="text-bankGradient"> {user}</span>}
         <p className="header-box-subtext">{subtext}</p>
       </h1>
     </div>

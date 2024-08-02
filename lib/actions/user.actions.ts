@@ -13,7 +13,6 @@ import { addFundingSource, createDwollaCustomer } from "./dwolla.actions";
 const {
   APPWRITE_DATABASE_ID: DATABASE_ID,
   APPWRITE_USER_COLLECTION_ID: USER_COLLECTION_ID,
-  APPWRITE_BANK_COLLECTION_ID: BANK_COLLECTION_ID,
 } = process.env;
 
 export const getUserInfo = async ({ userId }: getUserInfoProps) => {
@@ -164,7 +163,7 @@ export const createBankAccount = async ({
 
     const bankAccount = await database.createDocument(
       DATABASE_ID!,
-      BANK_COLLECTION_ID!,
+      "66a7e50f003df74fd2c7",
       ID.unique(),
       {
         userId,
@@ -250,7 +249,7 @@ export const getBanks = async ({ userId }: getBanksProps) => {
 
     const banks = await database.listDocuments(
       DATABASE_ID!,
-      BANK_COLLECTION_ID!,
+      "66a7e50f003df74fd2c7",
       [Query.equal('userId', [userId])]
     )
 
@@ -266,7 +265,7 @@ export const getBank = async ({ documentId }: getBankProps) => {
 
     const bank = await database.listDocuments(
       DATABASE_ID!,
-      BANK_COLLECTION_ID!,
+      "66a7e50f003df74fd2c7",
       [Query.equal('$id', [documentId])]
     )
 
@@ -282,7 +281,7 @@ export const getBankByAccountId = async ({ accountId }: getBankByAccountIdProps)
 
     const bank = await database.listDocuments(
       DATABASE_ID!,
-      BANK_COLLECTION_ID!,
+      "66a7e50f003df74fd2c7",
       [Query.equal('accountId', [accountId])]
     )
 
