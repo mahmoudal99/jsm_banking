@@ -268,7 +268,6 @@ export const getBank = async ({ documentId }: getBankProps) => {
       "66a7e50f003df74fd2c7",
       [Query.equal('$id', [documentId])]
     )
-    console.log("BANKS ", bank)
     return parseStringify(bank.documents[0]);
   } catch (error) {
     console.log(error)

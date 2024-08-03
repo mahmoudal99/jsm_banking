@@ -12,10 +12,9 @@ const {
 export const createTransaction = async (transaction: CreateTransactionProps) => {
   try {
     const { database } = await createAdminClient();
-
     const newTransaction = await database.createDocument(
       DATABASE_ID!,
-      TRANSACTION_COLLECTION_ID!,
+      "66a7e4f6002c50ad493d",
       ID.unique(),
       {
         channel: 'online',
@@ -36,16 +35,15 @@ export const getTransactionsByBankId = async ({bankId}: getTransactionsByBankIdP
 
     const senderTransactions = await database.listDocuments(
       DATABASE_ID!,
-      TRANSACTION_COLLECTION_ID!,
+      "66a7e4f6002c50ad493d",
       [Query.equal('senderBankId', bankId)],
     )
 
     const receiverTransactions = await database.listDocuments(
       DATABASE_ID!,
-      TRANSACTION_COLLECTION_ID!,
+      "66a7e4f6002c50ad493d",
       [Query.equal('receiverBankId', bankId)],
     );
-
     const transactions = {
       total: senderTransactions.total + receiverTransactions.total,
       documents: [
